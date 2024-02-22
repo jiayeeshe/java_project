@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@RestController
+@RestController // Because the Tomcat’s port is 8080 and the React’s port is 3000, there is a cross-domain problem, and requests will be blocked by the CORS policy.
 @RequestMapping("api/v1/reviews")
+@CrossOrigin(origins = "*")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
